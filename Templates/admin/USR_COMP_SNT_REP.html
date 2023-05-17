@@ -1,0 +1,39 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>VIEW_USER_COMPLAINT</title>-->
+<!--</head>-->
+
+{% extends 'adminIndex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>USER COMPLAINT AND SENT REPLY</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">USERNAME</th>
+        <th scope="col">COMPLAINT</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.uid.fname}}{{i.uid.lname}}</td>
+        <td>{{i.complaint}}</td>
+        <td>
+        {% if i.reply == 'pending' %}
+        <a href="{% url 'usrReply' id=i.id %}">REPLY</a>
+        {% else %}
+        {{i.reply}}
+        {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

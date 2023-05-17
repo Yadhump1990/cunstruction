@@ -1,0 +1,79 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>EDIT_WORKER_PROFILE</title>-->
+<!--</head>-->
+{% extends 'workerIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="update_worker_pro">
+  <h1>EDIT PROFILE</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="row">FIRSTNAME:</th>
+        <td><label for="textfield"></label>
+          <input type="text" name="fname" id="textfield" pattern="[A-Za-z]{2,20}" value="{{val.fname}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">LASTNAME:</th>
+        <td><label for="textfield"></label>
+          <input type="text" name="lname" id="textfield2" pattern="[A-Za-z]{2,20}" value="{{val.lname}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">EMAIL:</th>
+        <td><label for="email"></label>
+          <input type="email" name="email" id="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" value="{{val.email}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">PHONE:</th>
+        <td><label for="tel"></label>
+          <input type="tel" name="tel" id="tel" pattern="[6-9]\d{9}" value="{{val.phone}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">PLACE:</th>
+        <td><label for="textfield"></label>
+          <input type="text" name="place" id="textfield3" pattern="[A-Za-z]{3,20}" value="{{val.place}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">POST:</th>
+        <td><label for="textfield"></label>
+          <input type="text" name="post" id="textfield4" pattern="[A-Za-z0-9\s]{3,20}" value="{{val.post}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">PIN:</th>
+        <td><label for="textfield"></label>
+          <input type="text" name="pin" id="textfield5" pattern="[0-9]{6}" value="{{val.pin}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">GENDER</th>
+        <td><input type="radio" name="radio" id="radio" value="MALE" {% if val.gender == 'MALE' %} checked{% endif %}>
+          <label for="radio">MALE
+            <input type="radio" name="radio" id="radio2" value="FEMALE" {% if val.gender == 'FEMALE' %} checked{% endif %}>
+            FEMALE</label></td>
+      </tr>
+      <tr>
+        <th scope="row">EXPERIANCE</th>
+        <td><label for="number"></label>
+          <input type="number" name="exp" id="number" min="0" max="50" value="{{val.experience}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">AVAILABILITY</th>
+        <td><label for="select"></label>
+          <select name="select" id="select" required="">
+            <option value=""></option>
+			  <option value="FULL-TIMER"{% if val.availability == 'FULL-TIMER' %} selected {% endif %} >FULL-TIMER</option>
+			  <option value="PART-TIMER" {% if val.availability == 'PART-TIMER' %} selected {% endif %}>PART-TIMER</option>
+			  <option value="CONTRACT" {% if val.availability == 'CONTRACT' %} selected {% endif %}>CONTRACT</option>
+        </select></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="UPDATE"></th>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

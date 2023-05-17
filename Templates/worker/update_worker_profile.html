@@ -1,0 +1,50 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>EDIT_WORKER_PROFILE</title>-->
+<!--</head>-->
+{% extends 'workerIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>PROFILE</h1>
+  <table width="350" border="1">
+    <tbody>
+      <tr>
+        <th width="114" scope="row">NAME:</th>
+        <td width="151">{{val.fname}}{{val.lname}}</td>
+      </tr>
+      <tr>
+        <th scope="row">EMAIL:</th>
+        <td>{{val.email}}</td>
+      </tr>
+      <tr>
+        <th scope="row">PHONE:</th>
+        <td>{{val.phone}}</td>
+      </tr>
+      <tr>
+        <th scope="row">ADDRESS:</th>
+        <td>{{val.place}}{{val.post}}{{val.pin}}</td>
+      </tr>
+      <tr>
+        <th scope="row">GENDER</th>
+        <td>{{val.gender}}</td>
+      </tr>
+      <tr>
+        <th scope="row">EXPERIANCE</th>
+        <td>{{val.experience}}</td>
+      </tr>
+      <tr>
+        <th scope="row">AVAILABILITY</th>
+        <td>{{val.availability}}</td>
+      </tr>
+      <tr>
+        <th colspan="2"><p><a href="editWorkerProfile">EDIT</a></p></th>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

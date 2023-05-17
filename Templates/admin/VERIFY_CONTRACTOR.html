@@ -1,0 +1,46 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>VERIFY_CONTRACTOR</title>-->
+<!--</head>-->
+{% extends 'adminIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h2>VERIFY CONTRACTORS</h2>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <th scope="col">CONTRACTOR_NAME</th>
+        <th scope="col">ADDRESS</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">GENDER</th>
+        <th scope="col">EXPERIANCE</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.fname}} {{i.lname}}</td>
+        <td>{{i.place}} {{i.post}} {{i.pin}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.gender}}</td>
+        <td>{{i.experience}}</td>
+        <td>
+          {% if i.lid.type == 'pending' %}
+          <p><a href="{% url 'acceptContractor' id=i.lid.id %}">ACCEPT</a></p>
+          <p><a href="{% url 'rejectContractor' id=i.lid.id %}">REJECT</a></p>
+          {% elif i.lid.type == 'rejected' %}
+          REJECTED
+          {% else %}
+          ACCEPTED
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

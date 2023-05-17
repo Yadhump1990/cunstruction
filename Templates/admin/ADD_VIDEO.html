@@ -1,0 +1,33 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>add_vedio</title>-->
+<!--</head>-->
+{% extends 'adminIndex.html' %}
+{% block body %}
+<body>
+<form method="post" enctype="multipart/form-data" name="form1" id="form1" action="add_video">
+  <h1>ADD VIDEO</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="row">VIDEO:</th>
+        <td><label for="fileField"></label>
+        <input type="file" name="fileField" id="fileField"></td>
+      </tr>
+      <tr>
+        <th scope="row">DESCRIPTIONS</th>
+        <td><label for="textarea"></label>
+        <textarea name="textarea" id="textarea" cols="45" rows="5"></textarea></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="ADD"></th>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

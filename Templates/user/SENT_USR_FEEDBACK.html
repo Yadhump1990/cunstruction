@@ -1,0 +1,39 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>SENT_FEEDBACK</title>-->
+<!--</head>-->
+{% extends 'userIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="sentFeedUser">
+  <h1>SEND FEEDBACK</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="row">FEEDBACK:</th>
+        <td><label for="textarea"></label>
+        <textarea name="textarea" id="textarea"></textarea></td>
+      </tr>
+      <tr>
+        <th scope="row">RATING</th>
+        <td><label for="select"></label>
+          <select name="select" id="select">
+			  <option value="1">1</option>
+			  <option value="2">2</option>
+			  <option value="3">3</option>
+			  <option value="4">4</option>
+			  <option value="5">5</option>
+        </select></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="SEND"></th>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

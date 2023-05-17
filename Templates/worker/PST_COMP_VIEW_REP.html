@@ -1,0 +1,35 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>POST_COMP_VIEW_REP</title>-->
+<!--</head>-->
+{% extends 'workerIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">CONTRACTOR NAME</th>
+        <th scope="col">COMPLAINT</th>
+        <th scope="col">DATE</th>
+        <th scope="col">REPLY</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.cid.fname}}{{i.cid.lname}}</td>
+        <td>{{i.complaint}}</td>
+        <td>{{i.date}}</td>
+        <td>{{i.reply}}</td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="4"><center><a href="postComplaint">ADD</a></center></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

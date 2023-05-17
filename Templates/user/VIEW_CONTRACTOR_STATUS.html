@@ -1,0 +1,32 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>VIEW_REQ_STAT</title>-->
+<!--</head>-->
+{% extends 'userIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>VIEW REQUEST STATUS</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">CONTRACTOR</th>
+        <th scope="col">WORK</th>
+        <th scope="col">STATUS</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.cwid.cid.fname}} {{i.cwid.cid.lname}}</td>
+        <td>{{i.cwid.work}}<td>
+        <td>{{i.status}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

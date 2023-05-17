@@ -1,0 +1,31 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>addJobs</title>-->
+<!--</head>-->
+{% extends 'contractorIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="add_jobs">
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">JobName</th>
+        <th scope="col"><label for="textfield"></label>
+        <input type="text" name="textfield" id="textfield" required=""></th>
+      </tr>
+      <tr>
+        <th scope="col">JobDetails</th>
+        <th scope="col"><label for="textfield"></label>
+        <input type="text" name="textfield2" id="textfield2" required=""></th>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="add"></th>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

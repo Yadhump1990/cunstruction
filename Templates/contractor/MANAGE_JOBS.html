@@ -1,0 +1,35 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>MANAGE_JOB</title>-->
+<!--</head>-->
+{% extends 'contractorIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>MANAGE JOB DETAILS</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">JOB NAME</th>
+        <th scope="col">JOB Datails</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.job}}</td>
+        <td>{{i.jobDetails}}</td>
+        <td><p><a href="{% url 'editJobs' id=i.id%}">EDIT</a></p>
+        <p><a href="{% url 'delJobs' id=i.id %}">DELETE</a></p></td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="3"><center><a href="addjobs">ADD</a></center></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

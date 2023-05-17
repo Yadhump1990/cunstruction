@@ -1,0 +1,46 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>ASSING_WRK_TO_WRKR</title>-->
+<!--</head>-->
+{% extends 'contractorIndex.html' %}
+{% block body %}
+<body>
+{% if val3.jobStatus == 'assigned' %}
+<script>alert("job already assigned")</script>>
+{% else %}
+<form id="form1" name="form1" method="post" action="assign_wrk_worker">
+  <h1>ASSIGN WORK TO WORKER</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="row">WORKER NAME</th>
+        <td><label for="select"></label>
+          <select name="select" id="select">
+            <option></option>
+            {% for i in val %}
+            <option value="{{i.id}}">{{i.fname}} {{i.lname}}</option>
+            {% endfor %}
+        </select></td>
+      </tr>
+      <tr>
+        <th scope="row">JOB NAME</th>
+        <td><label for="select2"></label>
+          <select name="select2" id="select2">
+            <option></option>
+            {% for i in val2 %}
+            <option value="{{i.id}}">{{i.job}}</option>
+            {% endfor %}
+        </select></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="ASSIGN"></th>
+      </tr>
+    </tbody>
+  </table>
+</form>
+{% endif %}
+</body>
+{% endblock %}
+<!--</html>-->

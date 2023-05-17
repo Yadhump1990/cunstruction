@@ -1,0 +1,66 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>VIEW_WORKER_REVIEW_RATE</title>-->
+<!--</head>-->
+{% extends 'adminIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="view_worker_rev_rat">
+  <h1>CUSTOMER REVIEW &amp; RATING</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">CONTRACTOR</th>
+        <th scope="col"> <select name="select2" id="select2">
+          <!--			  <option value=""></option>-->
+          
+          
+          
+            {% for i in val %}
+			  
+          
+          
+          <option value="{{i.0}}" {% if s == i.0 %} selected {% endif %}>
+          
+          
+          {{i.1}} {{i.2}}
+          
+          
+          </option>
+          
+          
+          
+            {% endfor %}
+        
+        
+        
+        </select></th>
+        <th scope="col"><input type="submit" name="submit" id="submit" value="search"></th>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">WORKER NAME</th>
+        <th scope="col">FEEDBACK</th>
+        <th scope="col">RATING</th>
+        <th scope="col">DATE</th>
+      </tr>
+      {% for i in val2 %}
+      <tr>
+        <td>{{i.3}} {{i.4}}</td>
+        <td>{{i.0}}</td>
+        <td>{{i.1}}</td>
+        <td>{{i.2}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

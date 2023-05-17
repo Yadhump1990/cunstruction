@@ -1,0 +1,36 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>POST_CONTRACTOR_WORKS</title>-->
+<!--</head>-->
+{% extends 'contractorIndex.html' %}
+{% block body %}
+<body>
+<form method="post" enctype="multipart/form-data" name="form1" id="form1" action="postWorks">
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="row">WORKS</th>
+        <td><label for="textfield"></label>
+        <input type="text" name="work" id="textfield"></td>
+      </tr>
+      <tr>
+        <th scope="row">IMAGE</th>
+        <td><label for="fileField"></label>
+        <input type="file" name="fileField" id="fileField"></td>
+      </tr>
+      <tr>
+        <th scope="row">DESCRIPTION</th>
+        <td><label for="textarea"></label>
+        <textarea name="textarea" id="textarea"></textarea></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="UPLOAD"></th>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

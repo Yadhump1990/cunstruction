@@ -1,0 +1,36 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>VIEW_USR_REP</title>-->
+<!--</head>-->
+{% extends 'userIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>SENT COMPLAINT AND VIEW REPLY</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">COMPLAINT</th>
+        <th scope="col">REPLY</th>
+        <th scope="col">DATE</th>
+      </tr>
+      {%for i in val%}
+      <tr>
+        <td>{{i.complaint}}</td>
+        <td>{{i.reply}}</td>
+        <td>{{i.date}}</td>
+      </tr>
+      <tr>
+        {% endfor %}
+        <td colspan="3"><center>
+          <a href="addUserComp">ADD</a>
+        </center></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

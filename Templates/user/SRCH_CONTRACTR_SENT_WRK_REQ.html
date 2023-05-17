@@ -1,0 +1,65 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>SRCH_CONTRACTOR_SENT_WRK_REQ</title>-->
+<!--</head>-->
+{% extends 'userIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="srchAndViewCOntractor">
+  <h1>SEARCH CONTRACT AND SENT WORK REQUEST</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">CONTRACTOR</th>
+        <th scope="col">
+          <select name="select2" id="select2">
+<!--			  <option value=""></option>-->
+            {% for i in val %}
+            {% if i.id|stringformat:"s" == s|stringformat:"s" %}
+			  <option value="{{i.id}}" selected >{{i.fname}} {{i.lname}}</option>
+            {% else %}
+              <option value="{{i.id}}" >{{i.fname}} {{i.lname}}</option>
+            {% endif %}
+            {% endfor %}
+        </select></th>
+        <th scope="col"><input type="submit" name="submit" id="submit" value="search"></th>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+  <table width="358" border="1">
+    <tbody>
+      <tr>
+        <th width="50" scope="col">WORK</th>
+        <th width="54" scope="col">IMAGE</th>
+        <th width="108" scope="col">DESCRIPTION</th>
+        <th width="108" scope="col">UPLOADED DATE</th>
+        <th width="118" scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val2 %}
+      <tr>
+        <td>{{i.work}}</td>
+        <td><img src="{{i.image.url}}" width="100" height="100"/></td>
+        <td>{{i.description}}</td>
+        <td>{{i.date}}</td>
+
+        <td>
+        {% if i.status == 'request sent' %}
+          request sent
+        {% else %}
+            <p><a href="{% url 'sendWorkReqToCon' id=i.id %}">SEND REQUEST</a></p>
+        {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

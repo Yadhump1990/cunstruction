@@ -1,0 +1,139 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>ADD_WORKER</title>-->
+<!--</head>-->
+{% extends 'contractorIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="add_Worker">
+  <h1>ADD WORKER</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="row">FIRST NAME</th>
+        <td><label for="textfield"></label>
+        <input type="text" name="fname" id="textfield" pattern="[A-Za-z]{2,20}" required=""></td>
+      </tr>
+      <tr>
+        <th scope="row">LAST NAME</th>
+        <td><input type="text" name="lname" id="textfield2" pattern="[A-Za-z]{2,20}" required=""></td>
+      </tr>
+      <tr>
+        <th scope="row">EMIAL</th>
+        <td><label for="email"></label>
+        <input type="email" name="email" id="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required=""></td>
+      </tr>
+      <tr>
+        <th scope="row">PHONE</th>
+        <td><label for="tel"></label>
+        <input type="tel" name="tel" id="tel" pattern="[6-9]\d{9}" required=""></td>
+      </tr>
+      <tr>
+        <th scope="row">PIN</th>
+        <td><label for="number"></label>
+        <input type="number" name="pin" id="number" pattern="[0-9]{6}" required=""></td>
+      </tr>
+      <tr>
+        <th scope="row">POST</th>
+        <td><input type="text" name="post" id="textfield3" pattern="[A-Za-z0-9\s]{3,20}" required=""></td>
+      </tr>
+      <tr>
+        <th scope="row">PLACE</th>
+        <td><input type="text" name="place" id="textfield4" pattern="[A-Za-z]{3,20}" required=""></td>
+      </tr>
+      <tr>
+        <th scope="row">GENDER</th>
+        <td><input type="radio" name="radio" id="radio" value="MALE" checked>
+        <label for="radio">MALE 
+          <input type="radio" name="radio" id="radio2" value="FEMALE">
+        FEMALE </label></td>
+      </tr>
+      <tr>
+        <th scope="row">PROBATION_PERIOD</th>
+        <td><input type="radio" name="radio2" id="radioPro" value="YES">
+        <label for="radio">YES
+          <input type="radio" name="radio2" id="radio2Pro" value="NO">
+        NO </label></td>
+      </tr>
+
+      <tr id="probation-input" style="display:none;">
+        <th scope="row">Probation Period Length</th>
+        <td>
+          <input type="number" name="probation_length" id="probation_length">
+        </td>
+      </tr>
+
+
+      <tr>
+        <th scope="row">EXPERIANCE</th>
+        <td><label for="number2"></label>
+        <input type="number" name="exp" id="number2" min="0" max="50" required=""></td>
+      </tr>
+      <tr>
+        <th scope="row">AVAILABILITY</th>
+        <td><label for="select"></label>
+          <select name="select" id="select" required="">
+			  <option value=""></option>
+			  <option value="FULL-TIME">FULL-TIME</option>
+			  <option
+                      value="PART-TIME">PART-TIME</option>
+			  <option value="CONTRACT">CONTRACT</option>
+			  
+        </select></td>
+      </tr>
+      <tr>
+        <th scope="row">USERNAME</th>
+        <td><label for="textfield5"></label>
+        <input type="text" name="uname" id="textfield5"><p id="message"></p></td>
+      </tr>
+      <tr>
+        <th scope="row">PASSWORD</th>
+        <td><label for="password"></label>
+        <input type="password" name="password" id="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required=""></td>
+      </tr>
+      <tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="ADD"></th>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#textfield5").keyup(function(){
+    var uname;
+    uname = $(this).val();
+
+$.ajax({
+    type:"GET",
+    url: "/wrkrExistChk",
+    data:{
+        uname: uname
+    },
+    success: function(data) {
+            if (data.is_taken) {
+                $('#message').text(data.error_message);
+            } else {
+                $('#message').text("");
+            }
+        }
+
+});
+});
+  $('input[name=radio2]').on('change', function(){
+    if($(this).val() == 'YES'){
+      $('#probation-input').show();
+    } else {
+      $('#probation-input').hide();
+    }
+  });
+
+});
+
+</script>
+{% endblock %}
+

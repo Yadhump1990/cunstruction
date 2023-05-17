@@ -1,0 +1,38 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>VIEW_CUSTOMER_RQST_APPRVL</title>-->
+<!--</head>-->
+{% extends 'contractorIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>VIEW CUSTOMER REQUEST &amp; APPROVAL</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">CUSTOMER NAME</th>
+        <th scope="col">WORK REQUEST</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.uid.fname}}{{i.uid.lname}}</td>
+        <td><img src="{{i.cwid.image.url}}" width="100" height="100"/></td>
+        <td>
+          {% if i.status == 'pending' %}
+          <p><a href="{% url 'userReqAccept' id=i.id %}">ACCEPT</a></p>
+          <p><a href="{% url 'userReqReject' id=i.id %}">REJECT</a></p>
+          {% else %}
+          {{i.status}}
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

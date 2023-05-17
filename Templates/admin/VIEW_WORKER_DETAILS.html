@@ -1,0 +1,39 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>VIEW_WORKER_DETAIL</title>-->
+<!--</head>-->
+{% extends 'adminIndex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>WORKER DETAILS</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">WORKER_NAME</th>
+        <th scope="col">ADDRESS</th>
+        <th scope="col">PHONE</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">EXPERIANCE</th>
+        <th scope="col">AVAILABILITY</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.1}} {{i.2}}</td>
+        <td>{{i.5}} {{i.6}} {{i.7}}</td>
+        <td>{{i.4}}</td>
+        <td>{{i.8}}</td>
+        <td>{{i.9}}</td>
+        <td>{{i.10}}</td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->
